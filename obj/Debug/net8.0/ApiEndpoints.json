@@ -1,0 +1,259 @@
+[
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.EvacuationController",
+    "Method": "GetResults",
+    "RelativePath": "api/Evacuation/results",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.EvacuationController",
+    "Method": "StartEvacuation",
+    "RelativePath": "api/Evacuation/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "GetExits",
+    "RelativePath": "api/Management/exits",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "CreateExit",
+    "RelativePath": "api/Management/exits",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "exit",
+        "Type": "EvacuationSimulationAPI.Models.Exit",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "GetExit",
+    "RelativePath": "api/Management/exits/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "UpdateExit",
+    "RelativePath": "api/Management/exits/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedExit",
+        "Type": "EvacuationSimulationAPI.Models.Exit",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "DeleteExit",
+    "RelativePath": "api/Management/exits/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "GetPeople",
+    "RelativePath": "api/Management/people",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "CreatePerson",
+    "RelativePath": "api/Management/people",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "person",
+        "Type": "EvacuationSimulationAPI.Models.Person",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "GetPerson",
+    "RelativePath": "api/Management/people/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "UpdatePerson",
+    "RelativePath": "api/Management/people/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedPerson",
+        "Type": "EvacuationSimulationAPI.Models.Person",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "DeletePerson",
+    "RelativePath": "api/Management/people/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "GetRooms",
+    "RelativePath": "api/Management/rooms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "CreateRoom",
+    "RelativePath": "api/Management/rooms",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "room",
+        "Type": "EvacuationSimulationAPI.Models.Room",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "GetRoom",
+    "RelativePath": "api/Management/rooms/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "UpdateRoom",
+    "RelativePath": "api/Management/rooms/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedRoom",
+        "Type": "EvacuationSimulationAPI.Models.Room",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
+    "Method": "DeleteRoom",
+    "RelativePath": "api/Management/rooms/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
