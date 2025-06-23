@@ -5164,11 +5164,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\najer\\Downloads\\Proyecto cuantitativos\\EvacuationSimulationAPI\\EvacuationSimulationAPI\\EvacuationSimulationAPI.csproj",
+      "projectUniqueName": "C:\\Users\\najer\\Downloads\\Proyecto cuantitativos\\Github Backend\\Simulador_Evacuacion_BackEnd\\EvacuationSimulationAPI\\EvacuationSimulationAPI.csproj",
       "projectName": "EvacuationSimulationAPI",
-      "projectPath": "C:\\Users\\najer\\Downloads\\Proyecto cuantitativos\\EvacuationSimulationAPI\\EvacuationSimulationAPI\\EvacuationSimulationAPI.csproj",
+      "projectPath": "C:\\Users\\najer\\Downloads\\Proyecto cuantitativos\\Github Backend\\Simulador_Evacuacion_BackEnd\\EvacuationSimulationAPI\\EvacuationSimulationAPI.csproj",
       "packagesPath": "C:\\Users\\najer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\najer\\Downloads\\Proyecto cuantitativos\\EvacuationSimulationAPI\\EvacuationSimulationAPI\\obj\\",
+      "outputPath": "C:\\Users\\najer\\Downloads\\Proyecto cuantitativos\\Github Backend\\Simulador_Evacuacion_BackEnd\\EvacuationSimulationAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
