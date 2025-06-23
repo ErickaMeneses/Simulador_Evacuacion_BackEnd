@@ -12,6 +12,7 @@ namespace EvacuationSimulationAPI.Data
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<EvacuationResult> EvacuationResults { get; set; }
+        public DbSet<TheoreticalResult> TheoreticalResults { get; set; }
 
     }
 }

@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "T/80Oto+WPA0Ni8EQRE0sVJ25XOoCNEKKakc8DxIr/I=",
+  "Hash": "9vy7rLhaEM/xVcWZ+dwoA3MjIGtIOVz+wW/LGcDIS2k=",
   "Source": "EvacuationSimulationAPI",
   "BasePath": "_content/EvacuationSimulationAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }

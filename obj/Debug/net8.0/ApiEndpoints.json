@@ -20,6 +20,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EvacuationSimulationAPI.Controllers.EvacuationController",
+    "Method": "GetTheoreticalResults",
+    "RelativePath": "api/Evacuation/theoretical",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
     "Method": "GetExits",
     "RelativePath": "api/Management/exits",
@@ -40,22 +50,6 @@
       {
         "Name": "exit",
         "Type": "EvacuationSimulationAPI.Models.Exit",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
-    "Method": "GetExit",
-    "RelativePath": "api/Management/exits/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -117,24 +111,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "person",
-        "Type": "EvacuationSimulationAPI.Models.Person",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
-    "Method": "GetPerson",
-    "RelativePath": "api/Management/people/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "personDto",
+        "Type": "EvacuationSimulationAPI.Models.PersonCreateDto",
         "IsRequired": true
       }
     ],
@@ -155,7 +133,7 @@
       },
       {
         "Name": "updatedPerson",
-        "Type": "EvacuationSimulationAPI.Models.Person",
+        "Type": "EvacuationSimulationAPI.Models.PersonCreateDto",
         "IsRequired": true
       }
     ],
@@ -196,24 +174,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "room",
-        "Type": "EvacuationSimulationAPI.Models.Room",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EvacuationSimulationAPI.Controllers.ManagementController",
-    "Method": "GetRoom",
-    "RelativePath": "api/Management/rooms/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "roomDto",
+        "Type": "EvacuationSimulationAPI.Models.RoomCreateDto",
         "IsRequired": true
       }
     ],

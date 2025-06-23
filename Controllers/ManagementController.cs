@@ -16,51 +16,22 @@ namespace EvacuationSimulationAPI.Controllers
         {
             _context = context;
         }
-        /*
+
+        //Exit
         [HttpGet("exits")]
         public async Task<IActionResult> GetExits()
         {
             var exits = await _context.Exits.ToListAsync();
             return Ok(exits);
-        }
-
-        [HttpGet("rooms")]
-        public async Task<IActionResult> GetRooms()
-        {
-            var rooms = await _context.Rooms.Include(r => r.Exit).ToListAsync();
-            return Ok(rooms);
-        }
-
-        [HttpGet("people")]
-        public async Task<IActionResult> GetPeople()
-        {
-            var people = await _context.People.Include(p => p.Room).ToListAsync();
-            return Ok(people);
-        }
-        */
-
-        // ---------- EXITS ----------
-
-        [HttpGet("exits")]
-        public async Task<IActionResult> GetExits()
-        {
-            var exits = await _context.Exits.ToListAsync();
-            return Ok(exits);
-        }
-
-        [HttpGet("exits/{id}")]
-        public async Task<IActionResult> GetExit(int id)
-        {
-            var exit = await _context.Exits.FindAsync(id);
-            if (exit == null) return NotFound();
-            return Ok(exit);
         }
 
         [HttpPost("exits")]
         public async Task<IActionResult> CreateExit([FromBody] Exit exit)
         {
             if (exit == null || string.IsNullOrWhiteSpace(exit.Location) || exit.Capacity <= 0)
-                return BadRequest("Datos inválidos");
+            {
+                return BadRequest("Datos inválidos.");
+            }
 
             _context.Exits.Add(exit);
             await _context.SaveChangesAsync();
@@ -75,8 +46,8 @@ namespace EvacuationSimulationAPI.Controllers
 
             exit.Location = updatedExit.Location;
             exit.Capacity = updatedExit.Capacity;
-            await _context.SaveChangesAsync();
 
+            await _context.SaveChangesAsync();
             return Ok(exit);
         }
 
@@ -91,8 +62,8 @@ namespace EvacuationSimulationAPI.Controllers
             return NoContent();
         }
 
-        // ---------- ROOMS ----------
 
+        //Room
         [HttpGet("rooms")]
         public async Task<IActionResult> GetRooms()
         {
@@ -100,25 +71,30 @@ namespace EvacuationSimulationAPI.Controllers
             return Ok(rooms);
         }
 
-        [HttpGet("rooms/{id}")]
-        public async Task<IActionResult> GetRoom(int id)
-        {
-            var room = await _context.Rooms.Include(r => r.Exit).FirstOrDefaultAsync(r => r.Id == id);
-            if (room == null) return NotFound();
-            return Ok(room);
-        }
-
         [HttpPost("rooms")]
-        public async Task<IActionResult> CreateRoom([FromBody] Room room)
+        public async Task<IActionResult> CreateRoom([FromBody] RoomCreateDto roomDto)
         {
-            var exit = await _context.Exits.FindAsync(room.ExitId);
-            if (exit == null) return BadRequest("Exit asociado no existe.");
+            // Validar que exista el Exit
+            var exit = await _context.Exits.FindAsync(roomDto.ExitId);
+            if (exit == null)
+            {
+                return BadRequest($"Exit con ID {roomDto.ExitId} no existe.");
+            }
 
-            if (string.IsNullOrWhiteSpace(room.Name))
-                return BadRequest("Nombre requerido.");
+            if (string.IsNullOrWhiteSpace(roomDto.Name))
+            {
+                return BadRequest("Nombre de la sala es obligatorio.");
+            }
+
+            var room = new Room
+            {
+                Name = roomDto.Name,
+                ExitId = roomDto.ExitId
+            };
 
             _context.Rooms.Add(room);
             await _context.SaveChangesAsync();
+
             return Ok(room);
         }
 
@@ -128,13 +104,14 @@ namespace EvacuationSimulationAPI.Controllers
             var room = await _context.Rooms.FindAsync(id);
             if (room == null) return NotFound();
 
+            // Validar nuevo Exit
             var exit = await _context.Exits.FindAsync(updatedRoom.ExitId);
-            if (exit == null) return BadRequest("Exit asociado no existe.");
+            if (exit == null) return BadRequest("Exit no válido.");
 
             room.Name = updatedRoom.Name;
             room.ExitId = updatedRoom.ExitId;
-            await _context.SaveChangesAsync();
 
+            await _context.SaveChangesAsync();
             return Ok(room);
         }
 
@@ -149,45 +126,44 @@ namespace EvacuationSimulationAPI.Controllers
             return NoContent();
         }
 
-        // ---------- PERSON ----------
-
+        //Crear nueva Persona
+        
         [HttpGet("people")]
         public async Task<IActionResult> GetPeople()
         {
-            var people = await _context.People.Include(p => p.Room).ThenInclude(r => r.Exit).ToListAsync();
+            var people = await _context.People.Include(p => p.Room).ToListAsync();
             return Ok(people);
         }
 
-        [HttpGet("people/{id}")]
-        public async Task<IActionResult> GetPerson(int id)
-        {
-            var person = await _context.People.Include(p => p.Room).ThenInclude(r => r.Exit).FirstOrDefaultAsync(p => p.Id == id);
-            if (person == null) return NotFound();
-            return Ok(person);
-        }
-
         [HttpPost("people")]
-        public async Task<IActionResult> CreatePerson([FromBody] Person person)
+        public async Task<IActionResult> CreatePerson([FromBody] PersonCreateDto personDto)
         {
-            var room = await _context.Rooms.FindAsync(person.RoomId);
-            if (room == null) return BadRequest("Room asociado no existe.");
+            var room = await _context.Rooms.FindAsync(personDto.RoomId);
+            if (room == null)
+                return BadRequest($"Room con ID {personDto.RoomId} no existe.");
 
-            if (string.IsNullOrWhiteSpace(person.Name) || person.Speed <= 0)
-                return BadRequest("Datos inválidos para la persona.");
+            var person = new Person
+            {
+                Name = personDto.Name,
+                Speed = personDto.Speed,
+                RoomId = personDto.RoomId
+            };
 
             _context.People.Add(person);
             await _context.SaveChangesAsync();
+
             return Ok(person);
-        }
+        }        
 
         [HttpPut("people/{id}")]
-        public async Task<IActionResult> UpdatePerson(int id, [FromBody] Person updatedPerson)
+        public async Task<IActionResult> UpdatePerson(int id, [FromBody] PersonCreateDto updatedPerson)
         {
             var person = await _context.People.FindAsync(id);
             if (person == null) return NotFound();
 
+            // Validar nuevo Room
             var room = await _context.Rooms.FindAsync(updatedPerson.RoomId);
-            if (room == null) return BadRequest("Room asociado no existe.");
+            if (room == null) return BadRequest("Room no válido.");
 
             person.Name = updatedPerson.Name;
             person.Speed = updatedPerson.Speed;
@@ -207,5 +183,6 @@ namespace EvacuationSimulationAPI.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
     }
 }

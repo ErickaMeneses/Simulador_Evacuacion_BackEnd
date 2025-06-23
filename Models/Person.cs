@@ -8,4 +8,11 @@
         public int RoomId { get; set; }
         public Room Room { get; set; }
     }
+
+    public class PersonCreateDto
+    {
+        public string Name { get; set; }
+        public double Speed { get; set; }
+        public int RoomId { get; set; }
+    }
 }

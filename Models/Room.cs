@@ -7,4 +7,12 @@
         public int ExitId { get; set; }
         public Exit Exit { get; set; }
     }
+    public class RoomCreateDto
+    {
+        public string Name { get; set; }
+        public int ExitId { get; set; }
+    }
+
+
+
 }

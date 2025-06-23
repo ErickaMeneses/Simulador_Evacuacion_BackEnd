@@ -22,11 +22,9 @@ namespace EvacuationSimulationAPI.Controllers
         [HttpPost("start")]
         public async Task<IActionResult> StartEvacuation()
         {
-            // BORRA resultados previos
             _context.EvacuationResults.RemoveRange(_context.EvacuationResults);
             await _context.SaveChangesAsync();
 
-            // Simula y guarda nuevos resultados
             var totalEvacuated = await _evacuationService.SimulateEvacuationAsync();
             return Ok(new { Message = "Evacuación completada", TotalPeopleEvacuated = totalEvacuated });
         }
@@ -37,5 +35,25 @@ namespace EvacuationSimulationAPI.Controllers
             var results = await _context.EvacuationResults.OrderBy(r => r.TimeToEvacuate).ToListAsync();
             return Ok(results);
         }
+
+        //Resultados teoricos
+
+        [HttpGet("theoretical")]
+        public async Task<IActionResult> GetTheoreticalResults()
+        {
+            // Obtiene los 3 más recientes, ordenados por fecha descendente
+            var latestResults = await _context.TheoreticalResults
+                .OrderByDescending(t => t.SimulationDate)
+                .Take(3)
+                .ToListAsync();
+
+            if (!latestResults.Any())
+                return NotFound("No hay resultados teóricos disponibles.");
+
+            return Ok(latestResults);
+        }
+
+
+
     }
 }
